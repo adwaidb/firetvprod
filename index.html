@@ -1,19 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - Production Dashboard</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Production Report Dashboard</title>
+    <link rel="stylesheet" href="style.css"/>
 </head>
-<body class="login-body">
-  <div class="login-container">
-    <h2>Login</h2>
-    <input type="text" id="username" placeholder="Username">
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="login()">Login</button>
-  </div>
-  <script src="script.js"></script>
+<body>
+    <header>
+        <h1>Production Report Dashboard</h1>
+    </header>
+    <main>
+        <section id="employee-section" class="hidden">
+            <h2>Employee View</h2>
+            <div id="employee-data"></div>
+        </section>
+        <section id="manager-section" class="hidden">
+            <h2>Manager View</h2>
+            <div id="manager-data"></div>
+        </section>
+    </main>
+    <script src="script.js"></script>
 </body>
 </html>
