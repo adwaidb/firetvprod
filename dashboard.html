@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Production Report Dashboard</title>
+  <style>
+    body { font-family: Arial; background-color: #222; color: white; padding: 40px; text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>Production Report Dashboard</h1>
+  <div id="dashboard-content"></div>
+
+  <script>
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    if (!user) {
+      window.location.href = 'index.html';
+    } else {
+      const content = document.getElementById('dashboard-content');
+      const title = document.createElement('h2');
+      title.textContent = user.role === 'manager' ? 'Manager View' : 'Employee View';
+
+      const report = document.createElement('p');
+      if (user.role === 'manager') {
+        report.innerHTML = `
+          <strong>John Doe:</strong> 476.79 min | Prod: 101.44%<br>
+          <strong>Jane Smith:</strong> 506.7 min | Prod: 105.56%
+        `;
+      } else {
+        report.innerHTML = `
+          <strong>${user.name}:</strong> ${
+            user.name === 'John Doe' ? '476.79' : '506.7'
+          } min | Prod: ${
+            user.name === 'John Doe' ? '101.44%' : '105.56%'
+          }
+        `;
+      }
+      content.appendChild(title);
+      content.appendChild(report);
+    }
+  </script>
+</body>
+</html>
